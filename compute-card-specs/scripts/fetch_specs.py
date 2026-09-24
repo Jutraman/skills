@@ -32,6 +32,7 @@ COLUMNS = [
     ("fp16_dense_pflops", "FP16稠密(PFLOPS)"),
     ("fp16_sparse_pflops", "FP16稀疏(PFLOPS)"),
     ("fp8_pflops", "FP8(PFLOPS)"),
+    ("fp4_pflops", "FP4(PFLOPS)"),
     ("int8_tops", "INT8(TOPS)"),
     ("memory_gb", "显存(GB)"),
     ("memory_type", "显存类型"),

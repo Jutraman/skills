@@ -11,7 +11,7 @@ description: 自动采集国内外已发布的 AI 算力卡（NPU/GPU）规格�
 
 本 skill 维护一个**卡片目录**（`assets/card_catalog.json`），记录国内外已发布算力卡的官方规格与信息源，并按需通过 Web 检索补充/校准最新发布的产品：
 
-- **国内**：华为昇腾（Ascend 910B/910C/950PR/950DT/960 等）、寒武纪（MLU370/590/690）、海光 DCU（K100 等）、昆仑芯（P800/BW1000 等）、摩尔线程（MTT S4000 等）、燧原、天数智芯、壁仞等
+- **国内**：华为昇腾（Ascend 910B/910C/950PR/950DT/960/970 等，**官方源：https://www.hiascend.com/**，硬件与超节点产品页）、寒武纪（MLU370/590/690）、海光 DCU（K100 等）、昆仑芯（P800/BW1000 等）、摩尔线程（MTT S4000/S5000 等）、燧原、天数智芯、壁仞等
 - **国外**：NVIDIA（A100/H100/H200/B200/GB200/H20 等）、AMD（MI300X/MI325X/MI355 等）、Intel（Gaudi 2/3）
 
 **关键规格字段**：FP16/BF16 算力（含稀疏标注）、FP8/INT8 算力、显存容量/类型、HBM 带宽、卡间互联带宽、功耗、制程、发布状态。
@@ -61,10 +61,11 @@ compute-card-specs/
 ### 阶段二：数据采集与校准
 
 1. **本地目录优先**：`python scripts/query_catalog.py --vendor 华为 --fields fp16,memory`
-2. **Web 校准**（需要时）：对每张卡检索 `"<型号> datasheet|specsheet 官方"`，逐字段核对：
-   - 算力数字注意区分：稠密 vs 稀疏（sparse 通常翻倍）、FP16 vs BF16、理论峰值 vs 实测
-   - 显存注意区分：HBM2e/HBM3/HBM3e、容量是否为 Max 配置
-   - 互联带宽注意：单向 vs 双向、卡间 vs NVLink domain
+2. **Web 校准**（需要时）：对每张卡检索官方 datasheet 逐字段核对：
+   - **昇腾系列一律以 https://www.hiascend.com/ 为准**（硬件产品页/超节点页），发布会路标数据辅助
+   - 算力数字注意区分：稠密 vs 稀疏（sparse 通常翻倍）、FP16 vs BF16、理论峰值 vs 实测；昇腾 950+ 系官方主推 FP8/FP4 口径，FP16 可能未单独公布
+   - 显存注意区分：HBM2e/HBM3/HBM3e/自研 HBM（HiBL/HiZQ）、容量是否为 Max 配置
+   - 互联带宽注意：单向 vs 双向、卡间 vs 超节点域内
 3. 每个字段记录来源 URL；目录值与检索值冲突时，以官方源为准并提示用户目录需更新
 
 ### 阶段三：生成对比表格
