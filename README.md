@@ -1,6 +1,11 @@
 # skills
 OpenSkills for All Platforms。
 
+## 分支约定
+
+- **`dev`**：日常开发分支，所有新增/修改先在 dev 提交
+- **`main`**：稳定分支，dev 验证通过后合回（PR 或本地 merge + push）
+
 ## 触发词说明
 
 每个 skill 的 `README.md` 记录其**触发词**——用户对话中出现这些关键词时，opencode 会自动加载对应 skill 的 SKILL.md。新增 skill 时请同步维护其 README 的触发词章节。
