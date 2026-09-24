@@ -15,4 +15,5 @@ OpenSkills for All Platforms。
 | Skill | 说明 |
 |-------|------|
 | [vllm-ascend-pr-analyzer](./vllm-ascend-pr-analyzer/README.md) | 分析 vLLM Ascend 的 PR 代码变更，生成分析报告与开发范式总结 |
+| [msmodeling-simulator](./msmodeling-simulator/README.md) | 使用 msModeling（六壬）做模型性能仿真评估与部署参数寻优，无需真实硬件 |
 
