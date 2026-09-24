@@ -16,4 +16,5 @@ OpenSkills for All Platforms。
 |-------|------|
 | [vllm-ascend-pr-analyzer](./vllm-ascend-pr-analyzer/README.md) | 分析 vLLM Ascend 的 PR 代码变更，生成分析报告与开发范式总结 |
 | [msmodeling-simulator](./msmodeling-simulator/README.md) | 使用 msModeling（六壬）做模型性能仿真评估与部署参数寻优，无需真实硬件 |
+| [compute-card-specs](./compute-card-specs/README.md) | 采集国内外已发布算力卡规格并整合成对比表格，可溯源可校准 |
 
